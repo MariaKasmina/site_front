@@ -10,24 +10,37 @@ import {
 } from "react-router-dom";
 import SearchFlightPage from "./Components/SearchFlightPage";
 
-function App() {
-    return (
-        <Router>
-            <div>
-            <Switch>
-                <Route path="/home">
-                    <MainPage/>
-                </Route>
-                <Route path="/searchFlight">
-                    <SearchFlightPage/>
-                </Route>
-                <Route path="/">
-                    <MainPage/>
-                </Route>
-            </Switch>
-            </div>
-        </Router>
-    );
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            authData: '',
+        }
+    }
+
+    setAuthData(data) {
+        this.setState({authData: data});
+    }
+
+    render() {
+        return (
+            <Router>
+                <div>
+                    <Switch>
+                        <Route path="/home">
+                            <MainPage setAuthData={this.setAuthData}/>
+                        </Route>
+                        <Route path="/searchFlight">
+                            <SearchFlightPage authData={this.state.authData}/>
+                        </Route>
+                        <Route path="/">
+                            <MainPage/>
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default App;

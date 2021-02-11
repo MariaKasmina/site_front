@@ -19,6 +19,7 @@ class AuthorisationForm extends React.Component {
 
     handleChangeEmail(event) {
         this.setState({email: event.target.value});
+        this.props.setAuthData(event.target.value);
     }
 
     handleChangePassword(event) {

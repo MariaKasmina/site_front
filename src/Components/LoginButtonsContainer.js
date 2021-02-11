@@ -4,7 +4,7 @@ import Cookies from "universal-cookie/es6";
 
 const cookies = new Cookies();
 
-// отрисовывает блок с кнопками авторизации на главной, если в куках isLogged
+// не отрисовывает блок с кнопками авторизации на главной, если в куках isLogged == false
 function LoginButtonsContainer() {
     if (!cookies.get('isLogged')) {
         return (
