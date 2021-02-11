@@ -7,7 +7,7 @@ import AuthorisationForm from "./AuthorisationForm";
 /**
  * Компонент поп-ап для авторизации, который открывается после нажатия на кнопку Войти на главной
  */
-function LogInModal() {
+function LogInModal(props) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -21,7 +21,7 @@ function LogInModal() {
                 <Modal.Header closeButton>
                     <Modal.Title>Войти в учетную запись</Modal.Title>
                 </Modal.Header>
-                <Modal.Body><AuthorisationForm/></Modal.Body>
+                <Modal.Body><AuthorisationForm setAuthData = {props.setAuthData} /></Modal.Body>
             </Modal>
         </>
     );
