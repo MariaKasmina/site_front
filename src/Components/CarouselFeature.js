@@ -1,7 +1,7 @@
 import {Carousel} from "react-bootstrap";
-import caruselSlideFirst from "./slide11.jpg";
-import caruselSlideSecond from "./slide22.jpg";
-import caruselSlideThird from "./slide3.jpg";
+import caruselSlideFirst from "../images/slide11.jpg";
+import caruselSlideSecond from "../images/slide22.jpg";
+import caruselSlideThird from "../images/slide3.jpg";
 import React from "react";
 
 function CarouselFeature(){

@@ -1,8 +1,8 @@
 import React from "react";
 import {Card, Button} from 'react-bootstrap'
-import moskowCard from './moskow.jpg'
-import santPetersburgCard from './santpetersburg.jpg'
-import kazanCard from './kazan.jpg'
+import moskowCard from '../images/moskow.jpg'
+import santPetersburgCard from '../images/santpetersburg.jpg'
+import kazanCard from '../images/kazan.jpg'
 
 function CardsOnSearchFlightPage() {
     return (

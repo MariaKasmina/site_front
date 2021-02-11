@@ -1,6 +1,7 @@
 import {Form, Button} from 'react-bootstrap'
 import React from "react";
 import Cookies from "universal-cookie/es6";
+
 const cookies = new Cookies();
 
 class AuthorisationForm extends React.Component {
@@ -45,7 +46,9 @@ class AuthorisationForm extends React.Component {
                     <Form.Control type="password" placeholder="Password" value={this.state.password}
                                   onChange={this.handleChangePassword}/>
                 </Form.Group>
-                <Button variant="primary" type="submit" value="Submit" onClick={() => {cookies.set('isLogged', 'true', { path: '/' }); }} href="/searchFlight">
+                <Button variant="primary" type="submit" value="Submit" onClick={() => {
+                    cookies.set('isLogged', 'true', {path: '/'});
+                }} href="/searchFlight">
                     Войти
                 </Button>
             </Form>
