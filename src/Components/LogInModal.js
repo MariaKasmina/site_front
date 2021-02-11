@@ -2,6 +2,7 @@ import React from "react";
 import {Button, Modal} from 'react-bootstrap'
 import { useState } from 'react';
 import AuthorisationForm from "./AuthorisationForm";
+import SignUpModal from "./SignUpModal";
 
 
 /**
@@ -16,12 +17,12 @@ function LogInModal(props) {
     return (
         <>
             <Button className='mr-1' variant="light" value="logIn" onClick={handleShow} >Войти</Button>{' '}
-            <Button variant="light" value="logIn" onClick={handleShow} >Зарегистироваться</Button>{' '}
+            <SignUpModal/>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Войти в учетную запись</Modal.Title>
                 </Modal.Header>
-                <Modal.Body><AuthorisationForm setAuthData = {props.setAuthData} /></Modal.Body>
+                <Modal.Body><AuthorisationForm/></Modal.Body>
             </Modal>
         </>
     );

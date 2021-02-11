@@ -11,7 +11,7 @@ const carouselItems = [
     },
     {
         title: 'Только самые выгодные предложения',
-        text: '',
+        text: 'Более 1000 выгодных предложений ждут Вас',
         img: caruselSlideSecond
     },
     {
@@ -26,6 +26,7 @@ function CarouselFeature() {
         <Carousel>
             {carouselItems.map((element, key) => (
                 <Carousel.Item key={key}>
+                    <img alt='' className='slide-image' src={element.img}/>
                     <Carousel.Caption>
                         <h3 className='slide-title'>{element.title}</h3>
                         <p>{element.text}</p>

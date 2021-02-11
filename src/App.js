@@ -8,7 +8,9 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import SearchFlightPage from "./Components/SearchFlightPage";
+import SearchFlightPagePZ from "./Components/SearchFlightPagePZ";
+import Cookies from "universal-cookie/es6";
+const cookies = new Cookies();
 
 class App extends React.Component {
     constructor(props) {
@@ -16,22 +18,30 @@ class App extends React.Component {
         this.state = {
             authData: '',
         }
-    }
-
-    setAuthData(data) {
-        this.setState({authData: data});
+        // this.setAuthData = this.setAuthData.bind(this);
     }
 
     render() {
+        if (localStorage.getItem('userEmail') === null && localStorage.getItem('password') === null) {
+            if(Boolean(cookies.get('isLogged')) === true){
+                cookies.remove('isLogged', {path:'/'});
+            }
+            if(Boolean(cookies.get('isSignUp')) === true){
+                cookies.remove('isSignUp', {path:'/'});
+            }
+        }
+        /**if(cookies.get('isLogged') === undefined && cookies.get('isSignUp') === undefined){
+            localStorage.clear();
+        }*/
         return (
             <Router>
                 <div>
                     <Switch>
                         <Route path="/home">
-                            <MainPage setAuthData={this.setAuthData}/>
+                            <MainPage/>
                         </Route>
                         <Route path="/searchFlight">
-                            <SearchFlightPage authData={this.state.authData}/>
+                            <SearchFlightPagePZ/>
                         </Route>
                         <Route path="/">
                             <MainPage/>

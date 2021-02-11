@@ -13,7 +13,7 @@ function MainPage(props) {
             <div className="carousel">
                 <CarouselFeature/>
             </div>
-            <LoginButtonsContainer setAuthData={props.setAuthData}/>
+            <LoginButtonsContainer/>
         </div>
     );
 

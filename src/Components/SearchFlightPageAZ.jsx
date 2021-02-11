@@ -3,14 +3,15 @@ import React from "react";
 import Cookies from 'universal-cookie';
 import SearchForFlightsForm from "./SearchForFlightsForm";
 import CardsOnSearchFlightPage from "./CardsOnSearchFlightPage";
+import GreetingUserOnSearchFlightPage from "./GreetingUserOnSearchFlightPage";
 
-function SearchFlightPage(props) {
+function SearchFlightPageAZ(props) {
     return (
         <div className="App">
             <header className="App-header">
                 <NavigationPanel/>
             </header>
-            <h1 style={{color: "white"}}> Привет, {props.authData} !</h1>
+            <GreetingUserOnSearchFlightPage/>
             <h2 style={{color: "white"}} className='mt-2 mb-2'>Введите необходимые данные в форму ниже и Ваше
                 путешествие станет ближе</h2>
             <div>
@@ -24,4 +25,4 @@ function SearchFlightPage(props) {
     );
 }
 
-export default SearchFlightPage;
+export default SearchFlightPageAZ;
