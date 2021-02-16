@@ -1,5 +1,6 @@
 import Navbar from "react-bootstrap/Navbar";
 import {Nav} from "react-bootstrap";
+import ButtonsOnNavPanelAZ from "./AZ/ButtonsOnNavPanelAZ";
 
 function NavigationPanel() {
     return (
@@ -7,10 +8,7 @@ function NavigationPanel() {
             <Navbar.Brand href="#home">AviaSales</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link href="/home">Главная</Nav.Link>
-                    <Nav.Link href="/searchFlight">Поиск билетов</Nav.Link>
-                </Nav>
+                <ButtonsOnNavPanelAZ/>
             </Navbar.Collapse>
         </Navbar>
     );

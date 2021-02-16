@@ -4,9 +4,9 @@ import Cookies from "universal-cookie/es6";
 
 const cookies = new Cookies();
 
-// отрисовывает блок с кнопками авторизации на главной, если в куках isLogged
-function LoginButtonsContainer() {
-    if (!cookies.get('isLogged')) {
+// не отрисовывает блок с кнопками авторизации на главной, если в куках isLogged == false
+function LoginButtonsContainer(props) {
+    if (!Boolean(cookies.get('isLogged')) && !Boolean(cookies.get('isSignUp'))) {
         return (
             <div className='login-buttons-container'>
                 <h2 style={{color: 'white', backgroundColor: '#282c34',}}> Давайте знакомиться! </h2>

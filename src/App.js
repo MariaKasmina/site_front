@@ -8,26 +8,49 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import SearchFlightPage from "./Components/SearchFlightPage";
+import SearchFlightPagePZ from "./Components/SearchFlightPagePZ";
+import Cookies from "universal-cookie/es6";
+const cookies = new Cookies();
 
-function App() {
-    return (
-        <Router>
-            <div>
-            <Switch>
-                <Route path="/home">
-                    <MainPage/>
-                </Route>
-                <Route path="/searchFlight">
-                    <SearchFlightPage/>
-                </Route>
-                <Route path="/">
-                    <MainPage/>
-                </Route>
-            </Switch>
-            </div>
-        </Router>
-    );
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            authData: '',
+        }
+        // this.setAuthData = this.setAuthData.bind(this);
+    }
+
+    render() {
+        if (localStorage.getItem('userEmail') === null && localStorage.getItem('password') === null) {
+            if(Boolean(cookies.get('isLogged')) === true){
+                cookies.remove('isLogged', {path:'/'});
+            }
+            if(Boolean(cookies.get('isSignUp')) === true){
+                cookies.remove('isSignUp', {path:'/'});
+            }
+        }
+        /**if(cookies.get('isLogged') === undefined && cookies.get('isSignUp') === undefined){
+            localStorage.clear();
+        }*/
+        return (
+            <Router>
+                <div>
+                    <Switch>
+                        <Route path="/home">
+                            <MainPage/>
+                        </Route>
+                        <Route path="/searchFlight">
+                            <SearchFlightPagePZ/>
+                        </Route>
+                        <Route path="/">
+                            <MainPage/>
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default App;
