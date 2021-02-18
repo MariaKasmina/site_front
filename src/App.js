@@ -30,9 +30,6 @@ class App extends React.Component {
                 cookies.remove('isSignUp', {path:'/'});
             }
         }
-        /**if(cookies.get('isLogged') === undefined && cookies.get('isSignUp') === undefined){
-            localStorage.clear();
-        }*/
         return (
             <Router>
                 <div>

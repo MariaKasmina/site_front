@@ -1,5 +1,4 @@
 import Navbar from "react-bootstrap/Navbar";
-import {Nav} from "react-bootstrap";
 import ButtonsOnNavPanelAZ from "./AZ/ButtonsOnNavPanelAZ";
 
 function NavigationPanel() {

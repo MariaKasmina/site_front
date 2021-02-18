@@ -1,8 +1,8 @@
 import NavigationPanel from "./NavigaionPanel";
 import CarouselFeature from "./CarouselFeature";
-import LogInModal from "./LogInModal";
 import React from "react";
 import LoginButtonsContainer from "./LoginButtonsContainer";
+import TestComponent from "./TestComponent";
 
 function MainPage(props) {
     return (
@@ -14,6 +14,7 @@ function MainPage(props) {
                 <CarouselFeature/>
             </div>
             <LoginButtonsContainer/>
+            <TestComponent/>
         </div>
     );
 
