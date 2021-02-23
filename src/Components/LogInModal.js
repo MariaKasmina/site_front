@@ -16,7 +16,7 @@ function LogInModal(props) {
 
     return (
         <>
-            <Button className='mr-1' variant="light" value="logIn" onClick={handleShow} >Войти</Button>{' '}
+            <Button className='mr-1 login-button' variant="light" value="logIn" onClick={handleShow}>Войти</Button>{' '}
             <SignUpModal/>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

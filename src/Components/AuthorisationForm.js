@@ -1,8 +1,6 @@
 import {Form, Button} from 'react-bootstrap'
 import React from "react";
-import Cookies from "universal-cookie/es6";
-
-const cookies = new Cookies();
+import SpinnerOnLoginModal from "./SpinnerOnLoginModal";
 
 class AuthorisationForm extends React.Component {
 
@@ -11,6 +9,7 @@ class AuthorisationForm extends React.Component {
         this.state = {
             email: '',
             password: '',
+            isClicked: false,
         };
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -29,34 +28,61 @@ class AuthorisationForm extends React.Component {
     }
 
     handleSubmit(event) {
+        this.setState({isClicked: true});
         event.preventDefault();
     }
 
     render() {
-        return (
-            <Form onSubmit={this.handleSubmit}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Логин или адрес электронной почты</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email or login" value={this.state.email}
-                                  onChange={this.handleChangeEmail}/>
-                    <Form.Text className="text-muted">
-                        Мы не передадим Ваши данные третьим лицам.
-                    </Form.Text>
-                </Form.Group>
+        //alert(this.state.is)
+        if (!this.state.isClicked) {
+            return (
+                <div>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Логин или адрес электронной почты</Form.Label>
+                            <Form.Control type="text" placeholder="Enter email or login" value={this.state.email}
+                                          onChange={this.handleChangeEmail}/>
+                            <Form.Text className="text-muted">
+                                Мы не передадим Ваши данные третьим лицам.
+                            </Form.Text>
+                        </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Пароль</Form.Label>
-                    <Form.Control type="password" placeholder="Password" value={this.state.password}
-                                  onChange={this.handleChangePassword}/>
-                </Form.Group>
-                <Button variant="primary" type="submit" value="Submit" onClick={() => {
-                    cookies.set('isLogged', 'true', {path: '/'});
-                }} href="/">
-                    Войти
-                </Button>
-            </Form>
-        );
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Пароль</Form.Label>
+                            <Form.Control type="password" placeholder="Password" value={this.state.password}
+                                          onChange={this.handleChangePassword}/>
+                        </Form.Group>
+                        <Button variant="primary" type="submit" value="Submit">
+                            Войти
+                        </Button>
+                    </Form>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group controlId="formBasicEmail">
+                            <Form.Label>Логин или адрес электронной почты</Form.Label>
+                            <Form.Control type="text" placeholder="Enter email or login" value={this.state.email}
+                                          onChange={this.handleChangeEmail}/>
+                            <Form.Text className="text-muted">
+                                Мы не передадим Ваши данные третьим лицам.
+                            </Form.Text>
+                        </Form.Group>
+
+                        <Form.Group controlId="formBasicPassword">
+                            <Form.Label>Пароль</Form.Label>
+                            <Form.Control type="password" placeholder="Password" value={this.state.password}
+                                          onChange={this.handleChangePassword}/>
+                        </Form.Group>
+                        <SpinnerOnLoginModal login={this.state.email}/>
+                    </Form>
+                </div>
+            );
+        }
     }
 }
+
 
 export default AuthorisationForm;

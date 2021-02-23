@@ -6,10 +6,10 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
 } from "react-router-dom";
 import SearchFlightPagePZ from "./Components/SearchFlightPagePZ";
 import Cookies from "universal-cookie/es6";
+import ViewSearchedFlightsAndConfirm from "./Components/pages/ViewSearchedFlightsAndConfirm";
 const cookies = new Cookies();
 
 class App extends React.Component {
@@ -39,6 +39,9 @@ class App extends React.Component {
                         </Route>
                         <Route path="/searchFlight">
                             <SearchFlightPagePZ/>
+                        </Route>
+                        <Route path="/msk/spb">
+                            <ViewSearchedFlightsAndConfirm/>
                         </Route>
                         <Route path="/">
                             <MainPage/>

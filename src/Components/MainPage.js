@@ -14,7 +14,6 @@ function MainPage(props) {
                 <CarouselFeature/>
             </div>
             <LoginButtonsContainer/>
-            <TestComponent/>
         </div>
     );
 

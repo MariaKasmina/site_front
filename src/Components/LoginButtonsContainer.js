@@ -1,8 +1,6 @@
 import React from "react";
 import LogInModal from "./LogInModal";
 import Cookies from "universal-cookie/es6";
-import {Button} from "react-bootstrap";
-import TestComponent from "./TestComponent";
 
 const cookies = new Cookies();
 
