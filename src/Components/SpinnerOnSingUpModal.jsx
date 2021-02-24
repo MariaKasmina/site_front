@@ -55,7 +55,7 @@ class SpinnerOnSingUpModal extends React.Component {
         await axios.post('http://localhost:3001/api/sso/signup',
             {
                 "id": (this.state.count + 1),
-                "login": String(this.state.login),
+                "login": String(localStorage.getItem('userEmail')),
                 "password": String(this.state.password)
             }
         ).then(res => {
