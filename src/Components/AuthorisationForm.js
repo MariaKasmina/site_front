@@ -33,7 +33,6 @@ class AuthorisationForm extends React.Component {
     }
 
     render() {
-        //alert(this.state.is)
         if (!this.state.isClicked) {
             return (
                 <div>

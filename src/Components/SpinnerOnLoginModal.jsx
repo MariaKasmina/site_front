@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import {Spinner, Button, Alert} from "react-bootstrap";
 import Cookies from "universal-cookie/es6";
-import MainPage from "./MainPage";
 
 const cookies = new Cookies();
 
@@ -18,16 +17,20 @@ class SpinnerOnLoginModal extends React.Component {
         this.state = {
             login: this.props.login,
             password: null,
-            isCorrect: null,
+            isCorrect: false,
         };
     }
 
     render() {
-        if (this.state.isCorrect === null) {
+        //alert(this.state.isCorrect)
+        if (this.state.isCorrect === false) {
             return (
-                <Spinner animation="border" role="status">
-                    <span className="sr-only">Loading...</span>
-                </Spinner>
+                <div>
+                    <Alert variant="danger">
+                        Что-то пошло не так! Проверьте введенные данные
+                    </Alert>
+                    <Button variant="danger" onClick={this.componentDidMount}>Войти</Button>
+                </div>
             );
         } else if (this.state.isCorrect) {
             return (
@@ -37,27 +40,19 @@ class SpinnerOnLoginModal extends React.Component {
                 </div>
 
             );
-        } else {
-            return (
-                <div>
-                    <Alert variant="danger">
-                        Что-то пошло не так! Проверьте введенные данные
-                    </Alert>
-                    <Button variant="danger" onClick={this.setState({isCorrect: null})}>Войти</Button>
-                </div>
-
-            );
         }
+        return (
+            <Spinner animation="border" role="status">
+                <span className="sr-only">Loading...</span>
+            </Spinner>
+        );
     }
 
     async componentDidMount() {
-        await axios.get('http://localhost:3001/api/sso/signin?login='.concat(String(this.state.login))
+        await axios.get('http://localhost:3001/api/sso/signin?login='.concat(String(localStorage.getItem('userEmail')))
         ).then(res => {
-            alert(res.status)
             this.setState({password: res.data[0].PASSWORD})
-            if ((this.state.password !== localStorage.getItem('password'))) {
-                this.setState({isCorrect: false});
-            } else {
+            if ((this.state.password === localStorage.getItem('password')) && (res.status === 200)) {
                 this.setState({isCorrect: true});
                 cookies.set('isLogged', 'true', {path: '/'});
             }

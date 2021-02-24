@@ -1,6 +1,5 @@
 import NavigationPanel from "../../Components/NavigaionPanel";
 import React from "react";
-import TestComponent from "../TestComponent";
 import FlightShowJumbo from "../FlightShowJumbo";
 
 

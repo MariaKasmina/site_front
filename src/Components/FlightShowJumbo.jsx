@@ -1,6 +1,7 @@
 import React from "react";
 import {Jumbotron, Button} from "react-bootstrap";
 import axios from "axios";
+import RegisterBookingModal from "./RegisterBookingModal";
 
 
 class FlightShowJumbo extends React.Component {
@@ -39,7 +40,7 @@ class FlightShowJumbo extends React.Component {
                         Отправляемся: {this.state.departureDate}
                     </p>
                     <p>
-                        <Button variant="primary">Купить билет</Button>
+                        <RegisterBookingModal/>
                     </p>
                 </Jumbotron>
             </div>
@@ -123,8 +124,11 @@ class FlightShowJumbo extends React.Component {
         }).catch(function (error) {
             console.log(error);
         })
-    }
 
+        localStorage.setItem('idFlight', this.state.idFlight);
+        localStorage.setItem('currCountPassenger', this.state.passengerCount);
+        localStorage.setItem('idTimetable', this.state.idTimeTable);
+    }
 }
 
 export default FlightShowJumbo;
