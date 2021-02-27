@@ -1,31 +1,38 @@
 import React from "react";
 import {Jumbotron, Button, Form} from "react-bootstrap";
+import ViewSearchedFlightsAndConfirm from "./pages/ViewSearchedFlightsAndConfirm";
 
 class SearchForFlightsForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sityFrom: '',
-            SityTo: '',
-            dateFrom: '',
+            cityFrom: '',
+            cityTo: '',
+            date: '',
         };
-        this.handleChangeEmail = this.handleChangeEmail.bind(this);
-        this.handleChangePassword = this.handleChangePassword.bind(this);
+        this.handleChangeCityFrom = this.handleChangeCityFrom.bind(this);
+        this.handleChangeCityTo = this.handleChangeCityTo.bind(this);
+        this.handleChangeDate = this.handleChangeDate.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
 
-    handleChangeEmail(event) {
-        this.setState({email: event.target.value});
+    handleChangeCityFrom(event) {
+        this.setState({cityFrom: event.target.value});
+        localStorage.setItem('cityFrom', event.target.value);
     }
 
-    handleChangePassword(event) {
-        this.setState({password: event.target.value});
-        //document.cookie = `userPassword=${this.state.password}; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT`
+    handleChangeCityTo(event) {
+        this.setState({cityTo: event.target.value});
+        localStorage.setItem('cityTo', event.target.value);
+    }
+
+    handleChangeDate(event) {
+        this.setState({date: event.target.value});
+        localStorage.setItem('date', event.target.value);
     }
 
     handleSubmit(event) {
-        alert('hi1' + this.state.email + this.state.password);
         event.preventDefault();
     }
 
@@ -33,29 +40,29 @@ class SearchForFlightsForm extends React.Component {
         return (
             <div className='mt-5 w-50 d-inline-block'>
                 <Jumbotron className='pt-4 pb-5'>
-                    <Form>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Control type="email" placeholder="Введите город отправления" />
+                    <Form onSubmit={this.handleSubmit}>
+                        <Form.Group controlId="formCityFrom">
+                            <Form.Control type="text" placeholder="Введите город отправления" onChange={this.handleChangeCityFrom}/>
                             <Form.Text className="text-muted">
                                 Откуда
                             </Form.Text>
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Введите город назначения" />
+                        <Form.Group controlId="formCityTo">
+                            <Form.Control type="text" placeholder="Введите город назначения" onChange={this.handleChangeCityTo}/>
                             <Form.Text className="text-muted">
                                 Куда
                             </Form.Text>
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Control type="password" placeholder="Введите дату отправления в формате: 01.02.20XX" />
+                        <Form.Group controlId="formData">
+                            <Form.Control type="text" placeholder="Введите дату отправления в формате: 01.02.20XX" onChange={this.handleChangeDate}/>
                             <Form.Text className="text-muted">
                                 Дата отправления
                             </Form.Text>
                         </Form.Group>
 
-                        <Button variant="primary" type="submit">
+                        <Button variant="primary" type="submit" href="/msk/spb">
                             Найти рейс
                         </Button>
                     </Form>

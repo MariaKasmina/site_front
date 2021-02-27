@@ -1,6 +1,5 @@
 import NavigationPanel from "./NavigaionPanel";
 import React from "react";
-import Cookies from 'universal-cookie';
 import SearchForFlightsForm from "./SearchForFlightsForm";
 import CardsOnSearchFlightPage from "./CardsOnSearchFlightPage";
 import SearchFlightPageAZ from "./SearchFlightPageAZ";

@@ -1,8 +1,11 @@
 import NavigationPanel from "./NavigaionPanel";
 import CarouselFeature from "./CarouselFeature";
-import LogInModal from "./LogInModal";
 import React from "react";
 import LoginButtonsContainer from "./LoginButtonsContainer";
+
+/**
+ * Компонента главной страницы
+ */
 
 function MainPage(props) {
     return (

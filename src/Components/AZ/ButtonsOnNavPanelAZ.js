@@ -10,6 +10,13 @@ function ButtonsOnNavPanelAZ() {
             <Nav.Link href="/home">Главная</Nav.Link>
             <Nav.Link href="/searchFlight">Поиск билетов</Nav.Link>
         </Nav>);
+    }
+    if (cookies.get('isAdmin') !== undefined && cookies.get('isLogged') !== undefined) {
+        return (<Nav className="mr-auto">
+            <Nav.Link href="/home">Главная</Nav.Link>
+            <Nav.Link href="/administration">Администрирование</Nav.Link>
+            <Nav.Link href="/">Выход</Nav.Link>
+        </Nav>);
     } else {
         return (<Nav className="mr-auto">
             <Nav.Link href="/home">Главная</Nav.Link>
