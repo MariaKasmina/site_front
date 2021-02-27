@@ -47,6 +47,9 @@ class SpinnerOnAddNewAirlineForm extends React.Component{
         ).then(res => {
             if(res.status === 201){
                 this.setState({isResponse: true});
+                localStorage.removeItem('title');
+                localStorage.removeItem('price');
+                localStorage.removeItem('rating');
             }
         }).catch(
             function (error) {

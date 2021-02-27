@@ -48,6 +48,10 @@ class SpinnerOnAddTimetableRowForm extends React.Component{
         ).then(res => {
             if(res.status === 201){
                 this.setState({isResponse: true});
+                localStorage.removeItem('dep_date');
+                localStorage.removeItem('arr_date');
+                localStorage.removeItem('id_dep');
+                localStorage.removeItem('id_arr');
             }
         }).catch(
             function (error) {

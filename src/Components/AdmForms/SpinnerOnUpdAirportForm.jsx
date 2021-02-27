@@ -38,6 +38,10 @@ class SpinnerOnUpdAirportForm extends React.Component{
         ).then(res => {
             if(res.status === 200){
                 this.setState({isResponse: true});
+                localStorage.removeItem('id_airport');
+                localStorage.removeItem('title');
+                localStorage.removeItem('country');
+                localStorage.removeItem('city');
             }
         }).catch(
             function (error) {
