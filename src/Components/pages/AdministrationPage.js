@@ -9,6 +9,9 @@ import AddNewTimetableRow from "../AdmForms/AddNewTimetableRow";
 import UpdAirlineByIdForm from "../AdmForms/UpdAirlineByIdForm";
 import UpdAirportByIdForm from "../AdmForms/UpdAirportByIdForm";
 import UpdTimetableByIdForm from "../AdmForms/UpdTimetableByIdForm";
+import DelAirlineByIdForm from "../AdmForms/DelAirlineByIdForm";
+import DelAirportByIdForm from "../AdmForms/DelAirportByIdForm";
+import DelTimetableRowByIdForm from "../AdmForms/DelTimetableRowByIdForm";
 
 
 function AdministrationPage(props) {
@@ -23,6 +26,9 @@ function AdministrationPage(props) {
             <UpdAirlineByIdForm/>
             <UpdAirportByIdForm/>
             <UpdTimetableByIdForm/>
+            <DelAirlineByIdForm/>
+            <DelAirportByIdForm/>
+            <DelTimetableRowByIdForm/>
             <AirportTable/>
             <AirlineTable/>
             <TimetableTable/>
