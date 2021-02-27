@@ -10,6 +10,7 @@ import {
 import SearchFlightPagePZ from "./Components/SearchFlightPagePZ";
 import Cookies from "universal-cookie/es6";
 import ViewSearchedFlightsAndConfirm from "./Components/pages/ViewSearchedFlightsAndConfirm";
+import AdministrationPage from "./Components/pages/AdministrationPage";
 const cookies = new Cookies();
 
 class App extends React.Component {
@@ -25,6 +26,7 @@ class App extends React.Component {
         if (localStorage.getItem('userEmail') === null && localStorage.getItem('password') === null) {
             if(Boolean(cookies.get('isLogged')) === true){
                 cookies.remove('isLogged', {path:'/'});
+                cookies.remove('isAdmin', {path:'/'});
             }
             if(Boolean(cookies.get('isSignUp')) === true){
                 cookies.remove('isSignUp', {path:'/'});
@@ -42,6 +44,9 @@ class App extends React.Component {
                         </Route>
                         <Route path="/msk/spb">
                             <ViewSearchedFlightsAndConfirm/>
+                        </Route>
+                        <Route path="/administration">
+                            <AdministrationPage/>
                         </Route>
                         <Route path="/">
                             <MainPage/>

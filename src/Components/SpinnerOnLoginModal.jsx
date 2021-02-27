@@ -54,6 +54,10 @@ class SpinnerOnLoginModal extends React.Component {
             this.setState({password: res.data[0].PASSWORD})
             if ((this.state.password === localStorage.getItem('password')) && (res.status === 200)) {
                 this.setState({isCorrect: true});
+                if(localStorage.getItem('userEmail') === 'admin'){
+                    cookies.set('isAdmin', 'true', {path: '/'});
+                    cookies.set('isLogged', 'true', {path: '/'});
+                }
                 cookies.set('isLogged', 'true', {path: '/'});
             }
         }).catch(

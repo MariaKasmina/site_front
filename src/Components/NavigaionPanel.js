@@ -1,6 +1,9 @@
 import Navbar from "react-bootstrap/Navbar";
 import ButtonsOnNavPanelAZ from "./AZ/ButtonsOnNavPanelAZ";
 
+/**
+ * Компонента ленты навигации на главной странице
+ */
 function NavigationPanel() {
     return (
         <Navbar expand="lg" variant="dark" bg='black'>

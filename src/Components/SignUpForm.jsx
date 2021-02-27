@@ -5,6 +5,10 @@ import SpinnerOnSingUpModal from "./SpinnerOnSingUpModal";
 
 const cookies = new Cookies();
 
+/**
+ * Компонент формы регистрации на сайте
+ */
+
 class SignUpForm extends React.Component {
     constructor(props) {
         super(props);

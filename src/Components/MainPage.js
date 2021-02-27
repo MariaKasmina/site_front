@@ -3,6 +3,10 @@ import CarouselFeature from "./CarouselFeature";
 import React from "react";
 import LoginButtonsContainer from "./LoginButtonsContainer";
 
+/**
+ * Компонента главной страницы
+ */
+
 function MainPage(props) {
     return (
         <div className="App">

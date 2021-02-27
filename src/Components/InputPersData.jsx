@@ -1,6 +1,6 @@
 import React from "react";
 import {Form, Button} from "react-bootstrap"
-import TicketProcessing from "../TicketProcessing";
+import TicketProcessing from "./TicketProcessing";
 
 /**
  * Компонента ввода данных перед оформлением билета

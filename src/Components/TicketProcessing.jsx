@@ -1,7 +1,6 @@
 import React from "react"
-import {Alert, Button, Spinner} from "react-bootstrap"
-import axios from "axios"
-import SpinnerOnBookingModal from "./Components/SpinnerOnBookingModal";
+import {Alert} from "react-bootstrap"
+import SpinnerOnBookingModal from "./SpinnerOnBookingModal";
 
 class TicketProcessing extends React.Component {
 
